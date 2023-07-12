@@ -66,6 +66,10 @@ public class GamePanel extends JPanel implements ActionListener {
                     g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
                 }
             }
+            g.setColor(Color.red);
+			g.setFont( new Font("Ink Free",Font.BOLD, 40));
+			FontMetrics metrics = getFontMetrics(g.getFont());
+			g.drawString("Score: "+foodEaten, (WIDTH - metrics.stringWidth("Score: "+foodEaten))/2, g.getFont().getSize());
         }
         else{
             gameOver(g);
@@ -106,6 +110,7 @@ public class GamePanel extends JPanel implements ActionListener {
     public void checkFood(){
         if((x[0] == foodX) && (y[0] == foodY)){
             bodyParts++;
+            foodEaten++;
             newFood();
         }
     }
