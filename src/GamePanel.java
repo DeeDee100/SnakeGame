@@ -148,6 +148,11 @@ public class GamePanel extends JPanel implements ActionListener {
     }
     
     public void gameOver(Graphics g){
+    g.setColor(Color.red);
+        g.setFont( new Font("Ink Free",Font.BOLD, 40));
+        FontMetrics metrics_score = getFontMetrics(g.getFont());
+        g.drawString("Score: "+foodEaten, (WIDTH - metrics_score.stringWidth("Score: "+foodEaten))/2, g.getFont().getSize());
+
         g.setColor(Color.RED);
         g.setFont( new Font("Ink Free",Font.BOLD, 75));
         FontMetrics metrics = getFontMetrics(g.getFont());
